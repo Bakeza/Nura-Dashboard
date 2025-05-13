@@ -1,0 +1,379 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    
+    --background: 210 30% 99%;
+    --foreground: 222 47% 11.2%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11.2%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11.2%;
+    
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 46.9%;
+    
+    --accent: 221 83% 97%;
+    --accent-foreground: 222 47% 11.2%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 91.4%;
+    --input: 214 32% 91.4%;
+    --ring: 221 83% 53%;
+    
+    --sidebar-background: 222 47% 11.2%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17.5%;
+    --sidebar-ring: 221 83% 53%;
+    
+    --cognitive-attention: 221 83% 53%;
+    --cognitive-memory: 43 96% 58%;
+    --cognitive-executive: 142 72% 45%;
+    --cognitive-behavioral: 325 80% 56%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 221 83% 65%;
+    --primary-foreground: 222 47% 11.2%;
+    
+    --secondary: 217 33% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 221 83% 20%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 72% 65%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 17.5%;
+    --input: 217 33% 17.5%;
+    --ring: 221 83% 65%;
+    
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 221 83% 65%;
+    --sidebar-primary-foreground: 222 47% 11.2%;
+    --sidebar-accent: 217 33% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 221 83% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+
+  /* RTL specific adjustments */
+  [dir="rtl"] {
+    text-align: right;
+  }
+}
+
+/* RTL specific spacing adjustments */
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .mr-4 {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .ml-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .pl-8 {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+[dir="rtl"] .pr-8 {
+  padding-right: 0;
+  padding-left: 2rem;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* RTL positioning adjustments */
+[dir="rtl"] .left-3 {
+  left: auto;
+  right: 0.75rem;
+}
+
+[dir="rtl"] .right-3 {
+  right: auto;
+  left: 0.75rem;
+}
+
+/* RTL flex direction adjustments */
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row;
+}
+
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+/* Navigation menu RTL adjustments */
+[dir="rtl"] .radix-navigation-menu-content {
+  --radix-navigation-menu-viewport-left: auto;
+  --radix-navigation-menu-viewport-right: 0;
+  transform-origin: 100% 0;
+}
+
+/* Datepicker RTL adjustments */
+[dir="rtl"] .react-datepicker__header {
+  direction: rtl;
+}
+
+[dir="rtl"] .react-datepicker__day-names,
+[dir="rtl"] .react-datepicker__week {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* Glass effect components */
+.glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark .glass {
+  background-color: rgba(17, 25, 40, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.dark .glass:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Animations */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .shimmer::after {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* RTL specific animations */
+[dir="rtl"] .shimmer::after {
+  animation-direction: reverse;
+}
+
+/* Pixel art specific styles */
+.pixel-font {
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+.pixel-border {
+  position: relative;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 2px #0A2342, 0 0 0 4px #5EF38C;
+}
+
+.pixel-progress {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(to right, #5EF38C, #4DD77C);
+  box-shadow: 0 0 4px 1px rgba(94, 243, 140, 0.6);
+  clip-path: polygon(
+    0% 0%, 
+    2% 0%, 2% 10%, 4% 10%, 4% 0%, 6% 0%, 6% 10%, 
+    /* More steps */
+    94% 10%, 94% 0%, 96% 0%, 96% 10%, 98% 10%, 98% 0%, 
+    100% 0%, 100% 100%, 0% 100%
+  );
+}
+
+/* RTL-specific overrides for shadcn components */
+[dir="rtl"] .radix-dropdown-menu-content {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Form elements */
+[dir="rtl"] input, [dir="rtl"] textarea {
+  text-align: inherit;
+}
+
+/* Icon positioning */
+[dir="rtl"] svg + span:not(.absolute) {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+/* Button icons */
+[dir="rtl"] button svg:not(.absolute) + span {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+/* General layout */
+[dir="rtl"] .grid-flow-col {
+  grid-auto-flow: column-reverse;
+}
+
+[dir="rtl"] .justify-start {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .justify-end {
+  justify-content: flex-start;
+}
+  
+/* Dialog/Modal positioning */
+[dir="rtl"] .dialog-content, [dir="rtl"] .sheet-content {
+  direction: rtl;
+}
+
+/* Tabs */
+[dir="rtl"] .tabs-list {
+  flex-direction: row-reverse;
+}
+
+/* RTL card adjustments */
+[dir="rtl"] .card-header, 
+[dir="rtl"] .card-content, 
+[dir="rtl"] .card-footer {
+  text-align: right;
+}
+
+/* RTL for navigation elements */
+[dir="rtl"] .navigation-menu-trigger .chevron {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+[dir="rtl"] .navigation-menu-content {
+  transform-origin: top right;
+}
